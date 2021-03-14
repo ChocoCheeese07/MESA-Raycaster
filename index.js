@@ -19,7 +19,8 @@ var TestMap = new Map(testMap.data, 10, 10);
 
 export var activeMap = TestMap;
 
-export var player = new Player(MiniMap.width / 2, 104, 0, 0);
+export var player = new Player(MiniMap.width / 2, 414, 0, 0);
+player.angle = 230;
 
 console.clear();
 function miniMapUpdate() {
