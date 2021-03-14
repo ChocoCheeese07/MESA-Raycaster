@@ -16,7 +16,7 @@ export default class Player {
         this.vy = vy;
         this.fov = 60;
         this.angle = 270;
-        this.moveSpeed = 2;
+        this.moveSpeed = 3.5;
         this.rotSpeed = 0;
         this.size = miniMapScale * (.6 * (this.canvas.width / 10));
 
@@ -40,9 +40,9 @@ export default class Player {
         Utilities.drawLine(
             this.ctx, 
             this.x, this.y, 
-            this.x + 150 * Math.cos(this.angle * Math.PI / 180), 
-            this.y + 150 * Math.sin(this.angle * Math.PI / 180), 
-            "#ffffff"
+            this.x + 75 * Math.cos(this.angle * Math.PI / 180), 
+            this.y + 75 * Math.sin(this.angle * Math.PI / 180), 
+            "#0000ff"
             );
     };
     draw() {

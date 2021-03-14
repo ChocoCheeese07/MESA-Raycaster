@@ -28,9 +28,9 @@ function miniMapUpdate() {
     TestMap.draw();
 
     player.detectInput();
-    //player.drawDirectionLine();
     //player.angle += .1
     FPLoop();
+    player.drawDirectionLine();
     player.draw();
     console.log("X: " + Math.round(player.x) + " Y: " + Math.round(player.y) + " Ang: " + Math.round(player.angle) + '\n' + "X Tile: " + Utilities.roundToNearest(miniMapScale * 64, player.x) / (miniMapScale * 64) + " Y Tile: " + Utilities.roundToNearest(miniMapScale * 64, player.y) / (miniMapScale * 64));
 
