@@ -42,14 +42,14 @@ export default class Player {
             this.x, this.y, 
             this.x + 75 * Math.cos(this.angle * Math.PI / 180), 
             this.y + 75 * Math.sin(this.angle * Math.PI / 180), 
-            "#0000ff"
+            "#ff0000"
             );
     };
     draw() {
         this.x += this.vx;
         this.y += this.vy;
         this.angle += this.rotSpeed;
-        this.ctx.fillStyle = "#fff000";
+        this.ctx.fillStyle = "#ff00ff";
         this.ctx.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
     };
     detectInput() {

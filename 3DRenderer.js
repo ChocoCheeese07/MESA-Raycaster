@@ -131,11 +131,11 @@ export function FPLoop() {
             rx = hx;
             ry = hy;
             disT = disH;
-            wallColor = "#850000"
+            wallColor = "#800000"
         };
 
-        ctx.lineWidth = 3;
-        Utilities.drawLine(ctx, player.x, player.y, rx, ry, "#ff0000");
+        // ctx.lineWidth = 3;
+        // Utilities.drawLine(ctx, player.x, player.y, rx, ry, wallColor);
 
         //Draw 3D Walls//
         var ca = player.angle - Utilities.radToDeg(ra);

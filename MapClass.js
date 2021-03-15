@@ -16,7 +16,7 @@ export default class Map{
 
                 switch(wall) {
                     case 0:
-                        this.ctx.fillStyle = "#ececec";
+                        this.ctx.fillStyle = "#bfbfbf";
                         break;
                     case 1:
                         this.ctx.fillStyle = "#000000";
