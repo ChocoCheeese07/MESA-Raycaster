@@ -69,7 +69,7 @@ export default class Player {
             this.vy = -(this.moveSpeed * Math.sin(Math.PI / 180 * this.angle));
         }else { this.vy = 0; this.vx = 0; };
 
-        if (this.angle > 360) { this.angle = 0 + .001 };
-        if (this.angle < 0) { this.angle = 360 - .001 };
+        if (this.angle > 360) { this.angle = 0 + .00001 };
+        if (this.angle < 0) { this.angle = 360 - .00001 };
     };
 ;}

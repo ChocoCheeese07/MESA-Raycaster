@@ -18,7 +18,7 @@ export function FPLoop() {
     var rx, ry, ra, xo, yo, aTan, disT; //Floats
     var r, mx, my, mp, dof; //Integers
 
-    ra = Utilities.degToRad(player.angle) - (deg * 30);
+    ra = Utilities.degToRad(player.angle) - (deg * 30.001);
     if(ra < 0) {
         ra += 2 * Math.PI;
     };
@@ -28,7 +28,7 @@ export function FPLoop() {
     for(r = 0; r<60; r++) {
         //Horizontal Lines Check//
         dof = 0;
-        var disH = 10000000000, hx = player.x, hy = player.y;
+        var disH = 100000, hx = player.x, hy = player.y;
         aTan = -1 / Math.tan(ra);
 
         //Looking Up Check//
@@ -100,8 +100,8 @@ export function FPLoop() {
         };
 
         while(dof < 8) {
-            mx = Math.floor(rx) >> 6;
-            my = Math.floor(ry) >> 6;
+            mx = Math.trunc(rx) >> 6;
+            my = Math.trunc(ry) >> 6;
             mp = my * activeMap.width + mx;
 
             if(mp > 0 && mp < activeMap.width * activeMap.height && activeMap.data[mp] == 1) {
@@ -115,9 +115,6 @@ export function FPLoop() {
                 dof += 1;
             };
         };
-        // if(ra == Utilities.degToRad(183) || ra == Utilities.degToRad(356)) {
-        //     player.angle -= .0001;
-        // };
 
         var wallColor = "#ff0000"
 

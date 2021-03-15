@@ -15,7 +15,7 @@ var Utils = {
     },
     roundToNearest: function(target, value) {
         let multiplier = value / target;
-        let temp = value - (Math.round(multiplier) * target);
+        let temp = value - (Math.floor(multiplier) * target);
         return value - temp;
     },
     distance: function(x1, y1, x2, y2) {

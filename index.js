@@ -23,17 +23,17 @@ export var player = new Player(MiniMap.width / 2, 414, 0, 0);
 player.angle = 230;
 
 console.clear();
+
 function miniMapUpdate() {
     ctx.clearRect(0, 0, MiniMap.width, MiniMap.height);
 
     TestMap.draw();
 
     player.detectInput();
-    //player.angle += .1
     FPLoop();
     player.drawDirectionLine();
     player.draw();
-    console.log("X: " + Math.round(player.x) + " Y: " + Math.round(player.y) + " Ang: " + Math.round(player.angle) + '\n' + "X Tile: " + Utilities.roundToNearest(miniMapScale * 64, player.x) / (miniMapScale * 64) + " Y Tile: " + Utilities.roundToNearest(miniMapScale * 64, player.y) / (miniMapScale * 64));
+    //console.log("X: " + Math.round(player.x) + " Y: " + Math.round(player.y) + " Ang: " + Math.round(player.angle) + '\n' + "X Tile: " + Utilities.roundToNearest(miniMapScale * 64, player.x) / (miniMapScale * 64) + " Y Tile: " + Utilities.roundToNearest(miniMapScale * 64, player.y) / (miniMapScale * 64));
 
     requestAnimationFrame(miniMapUpdate);
 };
