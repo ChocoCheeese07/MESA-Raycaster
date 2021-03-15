@@ -4,8 +4,8 @@ import { player, activeMap, ctx, miniMapScale } from './index.js';
 var FPCanvas = document.createElement('canvas');
 document.body.appendChild(FPCanvas);
 FPCanvas.id = "FPView";
-FPCanvas.width = 640;
-FPCanvas.height = 480;
+FPCanvas.width = 853;
+FPCanvas.height = 640;
 var FP_ctx = FPCanvas.getContext("2d");
 
 var PI2 = Math.PI / 2;
@@ -13,19 +13,22 @@ var PI3 = 3 * Math.PI / 2;
 var deg = .01745329252;
 
 export function FPLoop() {
-    FP_ctx.clearRect(0, 0, FPCanvas.width, FPCanvas.height);
+    FP_ctx.fillStyle = "#54e5ff";
+    FP_ctx.fillRect(0, 0, FPCanvas.width, FPCanvas.height / 2);
+    FP_ctx.fillStyle = "#125e13";
+    FP_ctx.fillRect(0, FPCanvas.height / 2, FPCanvas.width, FPCanvas.height / 2);
 
     var rx, ry, ra, xo, yo, aTan, disT; //Floats
     var r, mx, my, mp, dof; //Integers
 
-    ra = Utilities.degToRad(player.angle) - (deg * 30.001);
+    ra = Utilities.degToRad(player.angle) - (deg * (player.fov / 2));
     if(ra < 0) {
         ra += 2 * Math.PI;
     };
     if(ra > 2 * Math.PI) {
         ra -= 2 * Math.PI;
     };
-    for(r = 0; r<60; r++) {
+    for(r = 0; r<player.fov; r++) {
         //Horizontal Lines Check//
         dof = 0;
         var disH = 100000, hx = player.x, hy = player.y;
@@ -146,13 +149,14 @@ export function FPLoop() {
         disT = disT * Math.cos(Utilities.degToRad(ca));
 
         var lineH = (64 * FPCanvas.width) / disT;
-        var lineO = 250 - (lineH / 2);
+        var lineW = 16;
+        var lineO = 320 - (lineH / 2);
         if(lineH > FPCanvas.width) {lineH = FPCanvas.width};
         FP_ctx.beginPath();
         FP_ctx.strokeStyle = wallColor;
-        FP_ctx.lineWidth = 12;
-        FP_ctx.moveTo(r * 12, lineO);
-        FP_ctx.lineTo(r * 12, lineH + lineO);
+        FP_ctx.lineWidth = lineW;
+        FP_ctx.moveTo(r * lineW, lineO);
+        FP_ctx.lineTo(r * lineW, lineH + lineO);
         FP_ctx.stroke();
         FP_ctx.closePath();
 

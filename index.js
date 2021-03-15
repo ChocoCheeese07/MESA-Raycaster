@@ -14,6 +14,7 @@ MiniMap.width = miniMapScale * 640;
 MiniMap.height = miniMapScale * 640;
 MiniMap.id = "TopDownView";
 export var ctx = MiniMap.getContext("2d");
+ctx.scale(.75, .75);
 
 var TestMap = new Map(testMap.data, 10, 10);
 

@@ -3,9 +3,5 @@
 }
 #FPView {
     background-color: burlywood;
-    margin-right: 6px;
-}
-#TopDownView {
     float: left;
-    margin-right: 5px;
 }
