@@ -1,11 +1,12 @@
 import Utilities from './Util.js';
 import { player, activeMap, ctx, miniMapScale } from './index.js';
 
-var FPCanvas = document.createElement('canvas');
-document.body.appendChild(FPCanvas);
-FPCanvas.id = "FPView";
-FPCanvas.width = 853;
-FPCanvas.height = 640;
+// var FPCanvas = document.createElement('canvas');
+// document.body.appendChild(FPCanvas);
+// FPCanvas.id = "FPView";
+var FPCanvas = document.getElementById('FPView');
+FPCanvas.width = 640;
+FPCanvas.height = 480;
 var FP_ctx = FPCanvas.getContext("2d");
 
 var PI2 = Math.PI / 2;
@@ -131,7 +132,7 @@ export function FPLoop() {
             rx = hx;
             ry = hy;
             disT = disH;
-            wallColor = "#800000"
+            wallColor = "#b80000"
         };
 
         // ctx.lineWidth = 3;
@@ -149,8 +150,8 @@ export function FPLoop() {
         disT = disT * Math.cos(Utilities.degToRad(ca));
 
         var lineH = (64 * FPCanvas.width) / disT;
-        var lineW = 16;
-        var lineO = 320 - (lineH / 2);
+        var lineW = 12;
+        var lineO = 240 - (lineH / 2);
         if(lineH > FPCanvas.width) {lineH = FPCanvas.width};
         FP_ctx.beginPath();
         FP_ctx.strokeStyle = wallColor;

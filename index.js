@@ -8,11 +8,12 @@ import testMap from './Maps/Test.js';
 export var miniMapScale = 1;
 
 //MiniMap Canvas Creation
-var MiniMap = document.createElement("canvas");
-document.body.appendChild(MiniMap);
+// var MiniMap = document.createElement("canvas");
+// document.body.appendChild(MiniMap);
+var MiniMap = document.getElementById("TopDownView");
 MiniMap.width = miniMapScale * 640;
 MiniMap.height = miniMapScale * 640;
-MiniMap.id = "TopDownView";
+// MiniMap.id = "TopDownView";
 export var ctx = MiniMap.getContext("2d");
 ctx.scale(.75, .75);
 
